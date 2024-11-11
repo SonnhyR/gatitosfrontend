@@ -1,0 +1,86 @@
+<form #gatitoForm="ngForm" (ngSubmit)="onSubmit(gatitoForm)">  
+  <div>  
+    <label for="nombre">Nombre:</label>  
+    <input type="text" id="nombre" name="nombre" [(ngModel)]="gatitoData.nombre" required />  
+  </div>  
+  
+  <div>  
+    <label for="raza">Raza:</label>  
+    <input type="text" id="raza" name="raza" [(ngModel)]="gatitoData.raza" required />  
+  </div>  
+
+  <div>  
+    <label for="color">Color:</label>  
+    <input type="text" id="color" name="color" [(ngModel)]="gatitoData.color" required />  
+  </div>  
+
+  <div>  
+    <label for="vacunado">Vacunado:</label>  
+    <input type="checkbox" id="vacunado" name="vacunado" [(ngModel)]="gatitoData.vacunado" />  
+  </div>  
+
+  <div>  
+    <label for="desparacitado">Desparacitado:</label>  
+    <input type="checkbox" id="desparacitado" name="desparacitado" [(ngModel)]="gatitoData.desparacitado" />  
+  </div>  
+
+  <div>  
+    <label for="esterilizado">Esterilizado:</label>  
+    <input type="checkbox" id="esterilizado" name="esterilizado" [(ngModel)]="gatitoData.esterilizado" />  
+  </div>  
+
+  <div>  
+    <label for="status">Status:</label>  
+    <input type="text" id="status" name="status" [(ngModel)]="gatitoData.status" required />  
+  </div>  
+
+  <div>  
+    <label for="ubicacion">Ubicación:</label>  
+    <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="gatitoData.ubicacion" required />  
+  </div>  
+
+  <div>  
+    <label for="telefono">Teléfono:</label>  
+    <input type="text" id="telefono" name="telefono" [(ngModel)]="gatitoData.telefono" required />  
+  </div>  
+
+  <div>  
+    <button type="submit">Enviar</button>  
+    <button type="button" (click)="onClear(gatitoForm)">Limpiar</button>  
+  </div>  
+</form>  
+
+<h2>Lista de Gatitos</h2>  
+<table>  
+  <thead>  
+    <tr>  
+      <th>Nombre</th>  
+      <th>Raza</th>  
+      <th>Color</th>  
+      <th>Vacunado</th>  
+      <th>Desparacitado</th>  
+      <th>Esterilizado</th>  
+      <th>Status</th>  
+      <th>Ubicación</th>  
+      <th>Teléfono</th>  
+      <th>Acciones</th>  
+    </tr>  
+  </thead>  
+  <tbody>  
+    <tr *ngFor="let gatito of gatitos">  
+      <td>{{ gatito.nombre }}</td>  
+      <td>{{ gatito.raza }}</td>  
+      <td>{{ gatito.color }}</td>  
+      <td>{{ gatito.vacunado ? 'Sí' : 'No' }}</td>  
+      <td>{{ gatito.desparacitado ? 'Sí' : 'No' }}</td>  
+      <td>{{ gatito.esterilizado ? 'Sí' : 'No' }}</td>  
+      <td>{{ gatito.status }}</td>  
+      <td>{{ gatito.ubicacion }}</td>  
+      <td>{{ gatito.telefono }}</td>  
+      <td>  
+        <button (click)="loadGatito(gatito.id)">Actualizar</button>  
+        <button (click)="remove(gatito.id)">Eliminar</button>  
+      </td>  
+    </tr>  
+  </tbody>  
+</table>
